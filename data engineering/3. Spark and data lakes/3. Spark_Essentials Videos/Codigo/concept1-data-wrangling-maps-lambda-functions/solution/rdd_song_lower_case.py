@@ -1,3 +1,5 @@
+## HOla ##
+
 ### 
 # You might have noticed this code in the screencast.
 #
@@ -13,6 +15,7 @@
 ###
 
 from pyspark.sql import SparkSession
+
 
 # Because we aren't running on a spark cluster, the session is just for development
 spark = SparkSession \
