@@ -1,5 +1,3 @@
-## HOla ##
-
 ### 
 # You might have noticed this code in the screencast.
 #
