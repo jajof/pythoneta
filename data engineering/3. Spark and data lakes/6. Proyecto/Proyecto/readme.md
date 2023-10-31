@@ -25,7 +25,7 @@ machine_learning/
 ```
 
 
-## Step 1: Uplod the data to S3  
+## Step 1: Upload the data to S3  
 
 The files are saved inside the data folder organized by the source. First, we must upload these files to S3 with the next script.
 
@@ -117,7 +117,7 @@ from
 
 Note two things
 - We didint keep info user of each observation. In this way, we protect the privacy of the users.
-- There is commente where clause. If we use it, we will have less data, but we assure that every obserbation used had the permission to use it. In simple words, just keep dat that took place after the user granted permission.
+- There is commented where clause. If we use it, we will have less data, but we assure that every observation used had the permission to use it. In simple words, just keep dat that took place after the user granted permission.
 
 Finally, we check the number of observations in our machine learning curated table.
 ![Rows of ml curated](images/14-rows-of-ml-curated.png)
