@@ -92,6 +92,8 @@ Now that you see results, you can use any desired SQL query parameters further r
 
 # Reverse Engineer a Table
 
+(Observación: solo funcionará si activamos TableType = EXTERNAL_TABLE dentro de Serde parameters)
+
 Sometimes, it is helpful to pass on the schema definition in git, to other co-workers, for example. The easiest way to pass on a schema is through DDL (Data Definition Language) SQL statements. Now that you've generated a table in glue, you can reverse engineer it, or generate the SQL statements.
 
 Under tables, click the three dots next to `customer_landing`, and click Generate table DDL.

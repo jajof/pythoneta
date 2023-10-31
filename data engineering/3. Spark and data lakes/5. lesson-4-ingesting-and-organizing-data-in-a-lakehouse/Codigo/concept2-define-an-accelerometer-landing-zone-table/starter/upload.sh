@@ -1,0 +1,1 @@
+aws s3 cp ./landing/ \s3://jh-data-lakehouse/acceloremeter/landing/ --recursive

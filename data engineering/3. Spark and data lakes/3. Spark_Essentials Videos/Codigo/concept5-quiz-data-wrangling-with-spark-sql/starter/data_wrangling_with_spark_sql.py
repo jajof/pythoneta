@@ -1,39 +1,58 @@
-#!/usr/bin/env python
-# coding: utf-8
+# # Data Wrangling with DataFrames Coding Quiz
 
-# # Data Wrangling with Spark SQL Quiz
-# 
-# This code uses the same dataset and most of the same questions from the earlier code using dataframes. For this scropt, however, use Spark SQL instead of Spark Data Frames.
-
+# %% Take care of any imports
 
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, desc, udf, col
+from pyspark.sql.types import IntegerType
+from pyspark.sql.functions import desc
+from pyspark.sql.functions import sum as Fsum
 
-# TODOS: 
-# 1) import any other libraries you might need
-# 2) instantiate a Spark session 
-# 3) read in the data set located at the path "data/sparkify_log_small.json"
-# 4) create a view to use with your SQL queries
-# 5) write code to answer the quiz questions 
+import datetime
+import os
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 
-# # Question 1
+spark = SparkSession \
+    .builder \
+    .appName("Our first Python Spark SQL example") \
+    .getOrCreate()
+
+# %% Reading json file.
+path = '/home/jorge/Documentos/pythoneta/data engineering/3. Spark and data lakes/3. Spark_Essentials Videos/Codigo/data/sparkify_log_small.json'
+abs_path = os.path.abspath(path)
+user_log_df = spark.read.json(abs_path)
+
+# We create a temporary view of the table
+user_log_df.createOrReplaceTempView("user_log_table")
+
+#%% Question 1
 # 
 # Which page did user id ""(empty string) NOT visit?
 
-# TODO: write your code to answer question 1
+spark.sql("""
+        Select distinct page
+        from user_log_table
+        where userId = ''
+""").show()
 
-
-# # Question 2 - Reflect
+#%% Question 2 - Reflect
 # 
 # Why might you prefer to use SQL over data frames? Why might you prefer data frames over SQL?
 
-# # Question 3
-# 
+#%% Question 3
 # How many female users do we have in the data set?
 
-# TODO: write your code to answer question 3
+spark.sql("""Select gender, count(distinct userid) 
+          from user_log_table
+          group by gender
+          """).show()
 
 
+#%%
 # # Question 4
 # 
 # How many songs were played from the most played artist?

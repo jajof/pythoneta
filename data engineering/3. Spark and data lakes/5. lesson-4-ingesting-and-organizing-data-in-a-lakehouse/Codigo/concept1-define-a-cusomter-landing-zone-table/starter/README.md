@@ -60,3 +60,6 @@ Now that you see results, you can use any desired SQL query parameters further r
 # Reverse Engineer a Table
 
 Under tables, click the three dots next to `customer_landing`, and click Generate table DDL:
+
+Observación: solo funcionará si activamos TableType = EXTERNAL_TABLE dentro de Serde parameters
+ 
