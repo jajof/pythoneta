@@ -44,17 +44,19 @@ staging_events_table_create = ("""CREATE TABLE staging_events (
                                 )""")
 
 staging_songs_table_create =  ("""CREATE TABLE staging_songs  (
-                                  artist_id text,
-                                  artist_latitude DOUBLE PRECISION,
-                                  artist_location text,
-                                  artist_longitude DOUBLE PRECISION,
-                                  artist_name text,
-                                  duration DOUBLE PRECISION,
-                                  num_songs int,
                                   song_id text,
+                                  num_songs int,
                                   title text,
-                                  year int
+                                  artist_name text,
+                                  artist_latitude double precision,
+                                  year int,
+                                  duration double precision, 
+                                  artist_id text, 
+                                  artist_longitude double precision,
+                                  artist_location text
                                 )""")    
+                                
+
 
 # CREATE OPERATIVE TABLES
 time_table_create = ("""CREATE TABLE dim_time (
